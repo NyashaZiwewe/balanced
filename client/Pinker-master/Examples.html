@@ -1,0 +1,210 @@
+<html>
+	<head>
+		<script src='Pinker.js'></script>
+		<style type='text/css'>
+			body {
+				font-family: Arial;
+				font-size: 18;
+			}
+			div.header {
+				font-size: 38;
+				margin-bottom: 0.5em;
+			}
+			pre {
+				display: inline-block;
+				vertical-align: top;
+				font-family: Courier;
+				font-size: 18;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='header'>
+		Pinker.js
+		</div>
+		
+		Types of Arrows
+		<div>
+			<pre id='Source01'>
+Layout:
+	[A][A2]
+	[B][B2][C][C2]
+	[D][D2]
+	[E][E2]
+	[F][F2]
+	[G][G2]
+	[H][H2]
+	[I][I2]
+	[J][J2]
+	[K][K2]
+Relate:
+	[A]->[A2]
+	[B]-D[B2]
+	[C]-:>[C2]
+	[D]-o[D2]
+	[E]-+[E2]
+	[F]-1[F2]
+	[G]-11[G2]
+	[H]-N[H2]
+	[I]-01[I2]
+	[J]-1N[J2]
+	[K]-0N[K2]
+			</pre>
+			<canvas id='Canvas01'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas01");
+			var source = document.getElementById("Source01").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+
+		Types of Lines
+		<div>
+			<pre id='Source02'>
+Layout:
+	[A][A2][A3][A4]
+	[B][B2][B3][B4]
+	[C][C2][C3][C4]
+	[D][D2][D3][D4]
+Relate:
+	[A]->[A2]
+	[A3]-[A4]
+	[B]=>[B2]
+	[B3]=[B4]
+	[C]-->[C2]
+	[C3]--[C4]
+	[D]*>[D2]
+	[D3]*[D4]
+			</pre>
+			<canvas id='Canvas02'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas02");
+			var source = document.getElementById("Source02").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+
+		Single-level Diagram
+		<div>
+			<pre id='Source03'>
+Layout:
+	[A]
+	[B][D][E]
+	[C]...[F]
+Relate:
+	[B]->[A],[C]
+	[D]->[B],[E],[F]
+			</pre>
+			<canvas id='Canvas03'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas03");
+			var source = document.getElementById("Source03").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+
+		Multi-level Diagram
+		<div>
+			<pre id='Source04'>
+Layout:
+	[A][B]
+[A]:
+	Layout:
+		[C][D]
+	Relate:
+		[C]->[D]
+		[D]->[B.E]
+[B]:
+	Layout:
+		[E]
+		[F]
+	Relate:
+		[E]->[F]
+		[F]->[A.D]
+			</pre>
+			<canvas id='Canvas04'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas04");
+			var source = document.getElementById("Source04").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+
+		Labeled Lines
+		<div>
+			<pre id='Source04.5'>
+Layout:
+	[A]
+	[B]
+	[C]
+Relate:
+	[A]->[C] "1":"2":"3"
+			</pre>
+			<canvas id='Canvas04.5'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas04.5");
+			var source = document.getElementById("Source04.5").innerHTML;
+			pinker.draw(canvas, source, {canvasPadding:20});
+		</script>
+
+		Using Aliases
+		<div>
+			<pre id='Source05'>
+Layout:
+	[{A}Long Long Label A][{B}Long Long Label B]
+Relate:
+	{A}->{B}
+{A}:
+	Layout:
+		[{C}Long Long Label C]
+{B}:
+	Layout:
+		[D]
+	Relate:
+		[D]->{C}.[E.Long Long Label F]
+{C}:
+	Layout:
+		[E]
+{C}.[E]:
+	Layout:
+		[Long Long Label F]
+			</pre>
+			<canvas id='Canvas05'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas05");
+			var source = document.getElementById("Source05").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+
+		Definitions
+		<div>
+			<pre id='Source06'>
+Layout:
+	[A][B]
+Relate:
+	[A]->[B]
+[A]:
+	Define:
+		oneField
+		twoField|
+		getOneField()
+		getTwoField()
+		setTwoField(x, y)
+	Layout:
+		[C]
+[B]:
+	Define:
+		fourField
+		fiveField
+			</pre>
+			<canvas id='Canvas06'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas06");
+			var source = document.getElementById("Source06").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+	</body>
+</html>

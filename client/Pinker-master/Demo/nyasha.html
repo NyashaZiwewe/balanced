@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<script src='../Pinker.js'></script>
+	    <link rel="stylesheet" type="text/css" href="Test.css" />
+		<style type='text/css'>
+			body {
+				font-family: Arial;
+				font-size: 18;
+			}
+			div.header {
+				font-size: 38;
+				margin-bottom: 0.5em;
+			}
+		</style>
+	</head>
+	<body>
+
+		Multi-level diagram
+		<div align="center" style="align-content: center">
+
+
+						<pre id='Source02' class='pinker'>
+Layout:
+    	[{A}Financial Perspective]
+    	[{B}Customer Perspective]
+    	[{C}Internal Processes]
+	    [{D}Learning and Growth]
+	
+
+
+
+	
+
+{A}:
+	Layout:
+		[Maintain Profitability][Ensure Longetivity]
+
+{B}:
+	Layout:
+		[Improve Customer Satisfaction][Increase Customer Loyalty][Sell New Products]
+		
+	Relate:
+		[Improve Customer Satisfaction]->[Financial Perspective.Maintain Profitability]
+		[Improve Customer Satisfaction]->[Financial Perspective.Ensure Longetivity]
+
+		[Increase Customer Loyalty]->[Financial Perspective.Maintain Profitability]
+		[Increase Customer Loyalty]->[Financial Perspective.Ensure Longetivity]
+
+		[Sell New Products]->[Financial Perspective.Maintain Profitability]
+		[Sell New Products]->[Financial Perspective.Ensure Longetivity]
+
+
+{C}:
+layout: 
+      [Improve Product Reliability][Reduce Support Costs][Improve Training Material][Increase customer value][Build New Products]
+
+Relate: 
+      [Improve Product Reliability]->[Reduce Support Costs]
+      [Reduce Support Costs]->[Customer Perspective.Improve Customer Satisfaction]
+      [Reduce Support Costs]->[Customer Perspective.Increase Customer Loyalty]
+      [Increase customer value]->[Customer Perspective.Increase Customer Loyalty]
+      [Build New Products]->[Customer Perspective.Sell New Products]
+      [Improve Training Material]->[Increase customer value]
+
+
+{D}:
+Layout:
+       [Improve Design Skills][Improve Writing Skills][improve customer relations]
+
+Relate:
+       [Improve Design Skills]->[Internal Processes.Improve Product Reliability] " ":"Strong"
+       [Improve Writing Skills]->[Internal Processes.Improve Training Material]
+       [improve customer relations]->[Internal Processes.Increase customer value],[Internal Processes.Build New Products]
+
+			</pre>
+		</div>
+	</body>
+</html>
+<script type='text/javascript'>
+	pinker.render();
+</script>

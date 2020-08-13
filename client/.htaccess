@@ -1,0 +1,35 @@
+Options +followSymlinks
+
+RewriteEngine on
+
+RewriteCond $1 !\.(gif|jpe?g|png)$ [NC]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^(.*)\\.(gif|jpg|png|jpeg|css|js|swf)$ /public/$1.$2 [L,NC]
+RewriteRule ^home$ index.php [QSA,L,NC]
+RewriteRule ^myscorecards$ scorecards.php [QSA,L,NC]
+RewriteRule ^scorecard/([0-9]+)$ grades.php?scorecard=$1 [QSA,L,NC]
+RewriteRule ^pep/([0-9]+)$ pep.php?sid=$1 [QSA,L,NC]
+RewriteRule ^downloads/([0-9]+)$ download.php?sid=$1 [QSA,L,NC]
+RewriteRule ^myscorecards/bydepartment$ scorecards.php?bydepartment=true [QSA]
+RewriteRule ^employees$ accounts.php [QSA,L,NC]
+RewriteRule ^actionPlans$ trello.php [QSA,L,NC]
+RewriteRule ^actionPlans/([0-9]+)$ trello.php?scorecard=$1 [QSA,L,NC]
+RewriteRule ^mywatchlist$ watch_list.php [QSA,L,NC]
+RewriteRule ^strategy$ nyasha.php [QSA,L,NC]
+RewriteRule ^performance-reports$ reports.php [QSA,L,NC]
+RewriteRule ^business-units$ business_units.php [QSA,L,NC]
+RewriteRule ^perspectives$ perspectives.php [QSA,L,NC]
+RewriteRule ^assessments$ assessments.php [QSA,L,NC]
+RewriteRule ^assessments/([0-9]+)$ assessments.php?scorecard=$1 [QSA,L,NC]
+RewriteRule ^assessments/([0-9]+)/([a-zA-Z0-9-/]+)$ assessments.php?scorecard=$1&$2 [QSA,L,NC]
+RewriteRule ^assessments/([0-9]+)/month/([a-zA-Z0-9-/]+)$ assessments.php?scorecard=$1&month=$2 [QSA,L,NC]
+RewriteRule ^assessments/([0-9]+)/quarter/([a-zA-Z0-9-/]+)$ assessments.php?scorecard=$1&quarter=$2 [QSA,L,NC]
+RewriteRule ^assessments/([0-9]+)/half/([a-zA-Z0-9-/]+)$ assessments.php?scorecard=$1&half=$2 [QSA,L,NC]
+RewriteRule ^assessments/([0-9]+)/year/([a-zA-Z0-9-/]+)$ assessments.php?scorecard=$1&year=$2 [QSA,L,NC]
+RewriteRule ^archives$ archived_cards.php [QSA,L,NC]
+RewriteRule ^cascaded_performance$ combined_hierachy.php [QSA,L,NC]
+RewriteRule ^new-design$ test_hierachy.php [QSA,L,NC]
+RewriteRule ^cascaded_performance/([0-9]+)$ hierachy.php?pid=$1 [QSA,L,NC]

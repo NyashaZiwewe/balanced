@@ -1,0 +1,24 @@
+body {
+    font-family: Arial;
+}
+.btn-action {    
+    background: #1f201f;
+    padding: 8px 25px;
+    margin-right: 10px;
+    border: #101010 1px solid;
+    color: #ccc;
+}
+.app-row {
+    margin-top: 20px;
+}
+
+#result {
+    border: #d0d0d0 1px solid;
+    padding: 10px;
+    min-height: 100px;
+}
+
+#error {
+    display:none;
+    color: #d63f3f;
+}

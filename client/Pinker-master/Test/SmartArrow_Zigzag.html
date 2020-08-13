@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		<script src='../Pinker.js'></script>
+		<link rel="stylesheet" type="text/css" href="Test.css" />
+	</head>
+	<body>
+		<div class='header'>
+		Pinker.js Tests: Smart Arrows: ZigZag
+		</div>
+
+		<div>
+			<pre id='Source01'>
+Layout:
+
+	[{P}down-left: between not-top-level cousins]
+
+{P}:
+	Layout:
+		[A]
+		[B]
+{P}.[A]:
+	Layout:
+		[Financial Database][Financial Data Mapper]
+	Relate:
+		[Financial Data Mapper]->{P}.[B.Financial Entities],[Financial Database]
+{P}.[B]:
+	Layout:
+		[Financial Data Gateway (Interface)]
+		[Financial Entities][Financial Report Generator]
+
+			</pre>
+			<canvas id='Canvas01'></canvas>
+		</div>
+		<script>
+			var canvas = document.getElementById("Canvas01");
+			var source = document.getElementById("Source01").innerHTML;
+			pinker.draw(canvas, source);
+		</script>
+
+	</body>
+</html>
